@@ -64,5 +64,9 @@ label {
 
 #result {
     width: 100%;
-    background-color: white;;
+    height: 10rem;
+    margin-top: 3%;
+    padding: 0;
+    border-radius: 10px;
+    background-color: white;
 }

@@ -28,5 +28,4 @@ https://www.calculatorsoup.com/calculators/financial/tip-calculator.php#:~:text=
 ## Authors
 * **Shehu Muhammad** - *Entire Project* - [Shehu Muhammad](https://github.com/Shehu-Muhammad/)
 ## License
-
-
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

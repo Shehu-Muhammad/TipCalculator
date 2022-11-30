@@ -10,34 +10,50 @@
 <body>
     <div class="container">
         <section>
-            <h1>Tip Caculator</h1>
+            <h1>Tip Calculator</h1>
             <article>
                 <form>
                     <div>
-                        <label for="">Bill Amount $</label>
-                        <input type="number" placeholder="amount">
+                        <label for="amount">Bill Amount $</label>
+                        <input type="text" value=0 id="amount" inputmode="numeric">
                     </div>
                     <div>
-                        <label for="">Tip %</label>
+                        <label for="tip">Tip %</label>
                         <button id="subtract-tip">-</button>
                         <input type="text" id="tip" value=0 inputmode="numeric">
                         <button id="add-tip">+</button>
                     </div>
                     <div>
-                        <label for="">Split the Bill?</label>
+                        <label for="split">Split the Bill?</label>
                         <button id="subtract-split">-</button>
                         <input type="text" id="split" value=0>
                         <button id="add-split">+</button>
                     </div>
                     <div>
-                        <input type="checkbox" name="" id="roundUp" inputmode="numeric">
-                        <label for="">Round up to dollars</label>
+                        <input type="checkbox" name="checkbox-round" id="roundUp" inputmode="numeric">
+                        <label for="checkbox-round">Round up to dollars</label>
                     </div>
                     <button id="clear">Clear</button>
                     <button id="calculate">Calculate</button>
                 </form>
                 <div id="result">
-
+                    <p>
+                        Result:
+                    </p>
+                    <ul>
+                        <li>The tip split for 
+                            <span id="tip-split">5</span> people
+                        </li>
+                        <li>15%: 
+                            <span id="fifteen-percent-tip"></span>
+                        </li>
+                        <li>20%: 
+                            <span id="twenty-percent-tip"></span>
+                        </li>
+                        <li>25%: 
+                            <span id="twenty-five-percent-tip"></span>
+                        </li>
+                    </ul>
                 </div>
             </article>
         </section>

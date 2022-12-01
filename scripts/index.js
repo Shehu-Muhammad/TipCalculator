@@ -44,8 +44,14 @@ MINUS_TIP();
 const CALCULATE_TIP = (tip) => {
     let amount = document.getElementById("amount").value
     let split = document.getElementById("split").value
+    let total = ((parseFloat(amount) * (parseFloat(tip)/100 + 1)) / parseInt(split)).toFixed(2)
     
-    let total = Math.ceil((parseInt(amount) * (parseInt(tip)/100 + 1)) / parseInt(split))
+    let roundUp = document.getElementById("roundUp").checked;
+    
+    if(roundUp) {
+        total = Math.ceil(total).toFixed(2)
+    }
+    
     return total;
 }
 
@@ -64,8 +70,7 @@ const CALCULATE_TOTAL = () => {
     fifteen.innerHTML = fifteenPercent
     twenty.innerHTML = twentyPercent
     twentyFive.innerHTML = twentyFivePercent
-    custom.innerHTML = CALCULATE_TIP(parseInt(tip))
-    
+    custom.innerHTML = CALCULATE_TIP(parseFloat(tip))
     
     document.getElementById("tip-split").innerHTML = split
     document.getElementById("result").style.display = "block";

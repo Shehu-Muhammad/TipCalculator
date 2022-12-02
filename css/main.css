@@ -37,6 +37,11 @@ p {
     padding-left: 10px;
 }
 
+#amount {
+    font-size: 0.8em;
+    width: 5em;
+}
+
 #roundUp {
     width: 20px;
     height: 20px;

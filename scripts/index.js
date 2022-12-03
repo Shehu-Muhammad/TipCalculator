@@ -87,3 +87,20 @@ const CALCULATE_BUTTON = () => {
 }
 
 CALCULATE_BUTTON();
+
+const CLEAR_BUTTON = () => {
+    let clear = document.getElementById("clear")
+    clear.addEventListener("click", (e)=> {
+        e.preventDefault()
+        let amount = document.getElementById("amount")
+        let tip = document.getElementById("tip")
+        let split = document.getElementById("split")
+        let result = document.getElementById("result")
+        amount.value = amount.value * 0
+        tip.value = tip.value * 0
+        split.value = split.value * 0
+        result.style.display = "none"
+    })
+}
+
+CLEAR_BUTTON();

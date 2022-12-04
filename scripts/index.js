@@ -1,38 +1,48 @@
+const GET_SPLIT = () => {
+    let split = document.getElementById("split");
+    return split;
+}
+
+const GET_TIP = () => {
+    let tip = document.getElementById("tip");
+    return tip;
+}
+
 const MINUS_TIP = () => {
-    let minus = document.getElementById("subtract-tip")
-    let tip = document.getElementById("tip")
+    let minus = document.getElementById("subtract-tip");
+    let tip = GET_TIP();
     minus.addEventListener("click", (e)=> {
         e.preventDefault();
-        tip.value - 1 == -1 ? 0 : tip.value -= 1
+        tip.value - 1 == -1 ? 0 : tip.value -= 1;
     })
 }
 
 const ADD_TIP = () => {
-    let add = document.getElementById("add-tip")
-    let tip = document.getElementById("tip")
+    let add = document.getElementById("add-tip");
+    let tip = GET_TIP();
     add.addEventListener("click", (e)=> {
         e.preventDefault();
-        tipValue = parseInt(tip.value) 
-        tip.value = tipValue + 1
+        tipValue = parseInt(tip.value);
+        tip.value = tipValue + 1;
     })
 }
 
 const MINUS_SPLIT = () => {
-    let minus = document.getElementById("subtract-split")
-    let split = document.getElementById("split")
+    let minus = document.getElementById("subtract-split");
+    let split = GET_SPLIT();
     minus.addEventListener("click", (e)=> {
         e.preventDefault();
-        split.value - 1 == -1 ? 0 : split.value -= 1
+        split.value - 1 == -1 ? 0 : split.value -= 1;
     })
 }
 
 const ADD_SPLIT = () => {
-    let add = document.getElementById("add-split")
-    let split = document.getElementById("split")
+    let add = document.getElementById("add-split");
+    let split = GET_SPLIT();
     add.addEventListener("click", (e)=> {
         e.preventDefault();
-        splitValue = parseInt(split.value) 
-        split.value = splitValue + 1
+        splitValue = parseInt(split.value); 
+        split.value = splitValue + 1;
     })
 }
 
@@ -41,15 +51,25 @@ ADD_SPLIT();
 ADD_TIP();
 MINUS_TIP();
 
+const GET_AMOUNT = () => {
+    let amount = document.getElementById("amount");
+    return amount;
+}
+
+const ROUND_UP = () => {
+    let roundUp = document.getElementById("roundUp");
+    return roundUp;
+}
+
 const CALCULATE_TIP = (tip) => {
-    let amount = document.getElementById("amount").value
-    let split = document.getElementById("split").value
-    let total = ((parseFloat(amount) * (parseFloat(tip)/100 + 1)) / parseInt(split)).toFixed(2)
+    let amount = GET_AMOUNT().value;
+    let split = GET_SPLIT().value;
+    let total = ((parseFloat(amount) * (parseFloat(tip)/100 + 1)) / parseInt(split)).toFixed(2);
     
-    let roundUp = document.getElementById("roundUp").checked;
+    let roundUp = ROUND_UP().checked;
     
     if(roundUp) {
-        total = Math.ceil(total).toFixed(2)
+        total = Math.ceil(total).toFixed(2);
     }
     
     return total;

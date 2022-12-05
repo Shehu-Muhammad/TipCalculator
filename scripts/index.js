@@ -76,33 +76,37 @@ const CALCULATE_TIP = (tip) => {
 }
 
 const CALCULATE_TOTAL = () => {
-    let fifteenPercent = CALCULATE_TIP(15)
-    let twentyPercent = CALCULATE_TIP(20)
-    let twentyFivePercent = CALCULATE_TIP(25)
-    let tip = document.getElementById("tip").value
-    let split = document.getElementById("split").value
+    let fifteenPercent = CALCULATE_TIP(15);
+    let twentyPercent = CALCULATE_TIP(20);
+    let twentyFivePercent = CALCULATE_TIP(25);
     
-    let fifteen = document.getElementById("fifteen-percent-tip")
-    let twenty = document.getElementById("twenty-percent-tip")
-    let twentyFive = document.getElementById("twenty-five-percent-tip")
-    let custom = document.getElementById("custom-tip")
+    return [fifteenPercent, twentyPercent, twentyFivePercent];
+}
+
+const SHOW_RESULTS = (fifteenPercent, twentyPercent, twentyFivePercent) => {
+    let fifteen = document.getElementById("fifteen-percent-tip");
+    let twenty = document.getElementById("twenty-percent-tip");
+    let twentyFive = document.getElementById("twenty-five-percent-tip");
+    let custom = document.getElementById("custom-tip");
+    let tip = GET_TIP().value;
+    let split = GET_SPLIT().value;
+
+    fifteen.innerHTML = fifteenPercent;
+    twenty.innerHTML = twentyPercent;
+    twentyFive.innerHTML = twentyFivePercent;
+    custom.innerHTML = CALCULATE_TIP(parseFloat(tip));
     
-    fifteen.innerHTML = fifteenPercent
-    twenty.innerHTML = twentyPercent
-    twentyFive.innerHTML = twentyFivePercent
-    custom.innerHTML = CALCULATE_TIP(parseFloat(tip))
-    
-    document.getElementById("tip-split").innerHTML = split
+    document.getElementById("tip-split").innerHTML = split;
     document.getElementById("result").style.display = "block";
-    
 }
 
 const CALCULATE_BUTTON = () => {
-    let calculateButton = document.getElementById("calculate")
+    let calculateButton = document.getElementById("calculate");
     
     calculateButton.addEventListener("click", (e)=>{
-        e.preventDefault()
-        CALCULATE_TOTAL();
+        e.preventDefault();
+        let [fifteenPercent, twentyPercent, twentyFivePercent] = CALCULATE_TOTAL();
+        SHOW_RESULTS(fifteenPercent, twentyPercent, twentyFivePercent);
     })
 }
 
@@ -111,15 +115,15 @@ CALCULATE_BUTTON();
 const CLEAR_BUTTON = () => {
     let clear = document.getElementById("clear")
     clear.addEventListener("click", (e)=> {
-        e.preventDefault()
-        let amount = document.getElementById("amount")
-        let tip = document.getElementById("tip")
-        let split = document.getElementById("split")
-        let result = document.getElementById("result")
-        amount.value = amount.value * 0
-        tip.value = tip.value * 0
-        split.value = split.value * 0
-        result.style.display = "none"
+        e.preventDefault();
+        let amount = document.getElementById("amount");
+        let tip = document.getElementById("tip");
+        let split = document.getElementById("split");
+        let result = document.getElementById("result");
+        amount.value = amount.value * 0;
+        tip.value = tip.value * 0;
+        split.value = split.value * 0;
+        result.style.display = "none";
     })
 }
 

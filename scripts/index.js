@@ -64,7 +64,7 @@ const ROUND_UP = () => {
 const CALCULATE_TIP = (tip) => {
     let amount = GET_AMOUNT().value;
     let split = GET_SPLIT().value;
-    let total = ((parseFloat(amount) * (parseFloat(tip)/100 + 1)) / parseInt(split)).toFixed(2);
+    let total = Math.abs((parseFloat(amount) - (parseFloat(amount) * (parseFloat(tip)/100 + 1)) / parseInt(split))).toFixed(2);
     
     let roundUp = ROUND_UP().checked;
     
@@ -88,6 +88,7 @@ const SHOW_RESULTS = (fifteenPercent, twentyPercent, twentyFivePercent) => {
     let twenty = document.getElementById("twenty-percent-tip");
     let twentyFive = document.getElementById("twenty-five-percent-tip");
     let custom = document.getElementById("custom-tip");
+    let totalWithTip = document.getElementById("total-with-tip");
     let tip = GET_TIP().value;
     let split = GET_SPLIT().value;
 
@@ -95,6 +96,7 @@ const SHOW_RESULTS = (fifteenPercent, twentyPercent, twentyFivePercent) => {
     twenty.innerHTML = twentyPercent;
     twentyFive.innerHTML = twentyFivePercent;
     custom.innerHTML = CALCULATE_TIP(parseFloat(tip));
+    totalWithTip.innerHTML = (parseFloat(GET_AMOUNT().value) + parseFloat(CALCULATE_TIP(parseFloat(tip)))).toFixed(2);
     
     document.getElementById("tip-split").innerHTML = split;
     document.getElementById("result").style.display = "block";
